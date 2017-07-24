@@ -79,9 +79,10 @@ app.post( '/api/compute', (request, response, next) => {
   let num2 = parseInt(operands[1])
   let finalResult = ""
   if ( operator !== "+" || "-" || "*" || "/") {
-    response.json({
-      error: `invalid operator ${operator}. Valid operators are /, +, -, *`
-    })
+    response.status( 404) 
+    .send(
+      `error: invalid operator ${operator}. Valid operators are /, +, -, *`
+    )
   } else {
       if ( operator === "+") {
         finalResult = num1 + num2
