@@ -13,3 +13,8 @@ INSERT INTO orders (shopper_id)
   ('4'),
   ('2');
 
+INSERT INTO order_items (order_id, item_id)
+  VALUES ('1', '4'),
+  ('4', '12'),
+  ('4', '15'),
+  ('2', '6');
