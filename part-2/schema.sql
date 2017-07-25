@@ -32,7 +32,6 @@ DROP TABLE IF EXISTS order_items CASCADE ;
 CREATE TABLE order_items (
 item_id INTEGER ,
 order_id INTEGER,
-quantity INTEGER
 );
 
 ALTER TABLE orders ADD FOREIGN KEY ("shopper_id") REFERENCES "shoppers" ("id") ON DELETE CASCADE;

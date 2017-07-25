@@ -3,10 +3,34 @@ const connectionString = `pg://${process.env.USER}@localhost:5432/grocery_store`
 const db = pgp( connectionString )
 
 exports.queries = {
-  allItems: () => db.many('SELECT * from grocery_items', [name]),
+  allItems: () => db.many('SELECT * from grocery_items'),
 
-  findById: ( id ) => db.one('SELECT * from usertable WHERE id = $1', [id]),
+  itemsInSection: ( section ) => 
+  db.many(
+    `SELECT
+      id, name
+     FROM
+      grocery_items
+     WHERE
+      section = $1`
+    ),
 
-  create: ( name, password ) => 
-    db.one('INSERT INTO usertable (name, password) VALUES ($1, $2) RETURNING *', [name, password])
+  cheapItems: () => 
+    db.many(
+      `SELECT
+        id, name, price
+      FROM
+        grocery_items
+      WHERE
+        price < 10
+      ORDER BY
+        price
+      ASC`
+    ),
+
+  countItemsInSection: ( section ) =>
+    db.one( 'SELECT count(*) FROM grocery_items WHERE section = $1' ),
+
+  mostRecentOrders: () =>
+    db.many( 'SELECT ')
 }

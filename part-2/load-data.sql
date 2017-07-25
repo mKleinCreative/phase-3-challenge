@@ -6,3 +6,10 @@ INSERT INTO shoppers (name)
   ('Michael'),
   ('jRob'),
   ('sushi');
+  
+INSERT INTO orders (shopper_id)
+  VALUES ('1'),
+  ('4'),
+  ('4'),
+  ('2');
+
