@@ -4,8 +4,18 @@
   "description": "testing database queries",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "db:create": "createdb grocery_store",
+    "db:drop": "dropdb grocery_store",
+    "db:setup": "psql grocery_store < ./schema.sql",
+    "db:seed": "psql grocery_store < ./load-data.sql"
   },
   "author": "Michael Klein",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "chai": "^4.1.0",
+    "mocha": "^3.4.2",
+    "nodemon": "^1.11.0",
+    "pg-promise": "^6.3.5"
+  }
 }
