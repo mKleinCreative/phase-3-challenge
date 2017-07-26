@@ -61,7 +61,7 @@
     docFrag = document.createDocumentFragment();
     
     this.modal = document.createElement("div")
-    ths.modal.className = "cart " + this.options.className;
+    this.modal.className = "cart " + this.options.className;
     this.modal.style.minWidth = this.options.minWidth + "px";
     this.modal.style.maxWidth = this.options.maxWidth + "px";
     
